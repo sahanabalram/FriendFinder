@@ -19,6 +19,7 @@
   "homepage": "https://github.com/sahanabalram/FriendFinder#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "path": "^0.12.7"
   }
 }
