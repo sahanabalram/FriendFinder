@@ -1,0 +1,27 @@
+body {
+    background-image: url("../images/paisley.png");
+   font-family: verdana;
+}
+
+.jumbotron {
+    background-color: aquamarine;
+    max-width: 100%;
+}
+
+h1.text-center {
+    color: mediumturquoise;
+}
+
+button.btn.btn-info.btn-lg,
+input#name {
+    margin-top: 10px;
+}
+
+button#submit-button {
+    margin-top: 20px;
+}
+
+.footer {
+    float: left;
+    clear: both;
+}

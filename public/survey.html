@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="stylesheet/style.css">
+
 </head>
 
 <body>
@@ -18,23 +19,24 @@
                 <hr>
             </div>
         </div>
-        <h2>
-            <strong>About You</strong>
-        </h2>
-        <h4>
-            <span class="glyphicon glyphicon-asterisk"></span> Name
-            <input type="text" name id="name" class="form-control" required>
-        </h4>
+        <div class="jumbotron">
+            <h2>
+                <strong>About You</strong>
+            </h2>
+            <h4>
+                <span class="glyphicon glyphicon-asterisk"></span> Name
+                <input type="text" name id="name" class="form-control" required>
+            </h4>
 
-        <h4>
-            <span class="glyphicon glyphicon-asterisk"></span> Link to your photo image
-            <input type="text" name id="name" class="form-control" required>
-        </h4>
-        <hr>
-        <div class="questions">
-            <h3><strong>Question1</strong></h3>
-            <h4>Do you like pets</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
+            <h4>
+                <span class="glyphicon glyphicon-asterisk"></span> Link to your photo image
+                <input type="text" name id="name" class="form-control" required>
+            </h4>
+            <hr>
+            <div class="questions">
+                <h1><strong>Questions</strong></h1>
+                <h4>1.Do you like pets</h4>
+                <select data-placeholder="" class="chosen-select" id="q1">
             <span>Select an Option</span>
                 <option value=""></option>
                 <option value="1">1(Strongly Disagree)</option>
@@ -44,45 +46,8 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
 
-            <h3><strong>Question2</strong></h3>
-            <h4>Do you like to go and watch horror movies</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-
-            <h3><strong>Question3</strong></h3>
-            <h4>Do you like reading books</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-
-            <h3><strong>Question4</strong></h3>
-            <h4>Do you like nature</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-
-            <h3><strong>Question5</strong></h3>
-            <h4>Do you like to go for hikes</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
+                <h4>2. Do you like to go and watch horror movies</h4>
+                <select data-placeholder="" class="chosen-select" id="q2">
             <span>Select an Option</span>
                 <option value=""></option>
                 <option value="1">1(Strongly Disagree)</option>
@@ -93,9 +58,8 @@
             </select>
 
 
-            <h3><strong>Question6</strong></h3>
-            <h4>Do you like to travel around the world</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
+                <h4>3. Do you like reading books</h4>
+                <select data-placeholder="" class="chosen-select" id="q3">
             <span>Select an Option</span>
                 <option value=""></option>
                 <option value="1">1(Strongly Disagree)</option>
@@ -105,10 +69,8 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
 
-
-            <h3><strong>Question7</strong></h3>
-            <h4>Do you like to go on long drives</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
+                <h4> 4. Do you like nature</h4>
+                <select data-placeholder="" class="chosen-select" id="q4">
             <span>Select an Option</span>
                 <option value=""></option>
                 <option value="1">1(Strongly Disagree)</option>
@@ -118,10 +80,8 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
 
-
-            <h3><strong>Question8</strong></h3>
-            <h4>Does your mind think about what is happening around the world</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
+                <h4>5. Do you like to go for hikes</h4>
+                <select data-placeholder="" class="chosen-select" id="q5">
             <span>Select an Option</span>
                 <option value=""></option>
                 <option value="1">1(Strongly Disagree)</option>
@@ -131,10 +91,48 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
 
-
-            <h3><strong>Question9</strong></h3>
-            <h4>Do you rely more on your imagination or reality</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
+                <h4>6. Do you like to travel around the world</h4>
+                <select data-placeholder="" class="chosen-select" id="q6">
+            <span>Select an Option</span>
+                <option value=""></option>
+                <option value="1">1(Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5(Strongly Agree)</option>
+            </select>
+                <h4>7. Do you like to go on long drives</h4>
+                <select data-placeholder="" class="chosen-select" id="q7">
+            <span>Select an Option</span>
+                <option value=""></option>
+                <option value="1">1(Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5(Strongly Agree)</option>
+            </select>
+                <h4>8. Does your mind think about what is happening around the world</h4>
+                <select data-placeholder="" class="chosen-select" id="q8">
+            <span>Select an Option</span>
+                <option value=""></option>
+                <option value="1">1(Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5(Strongly Agree)</option>
+            </select>
+                <h4>9. Do you rely more on your imagination or reality</h4>
+                <select data-placeholder="" class="chosen-select" id="q9">
+            <span>Select an Option</span>
+                <option value=""></option>
+                <option value="1">1(Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5(Strongly Agree)</option>
+            </select>
+                <h4>10. Do you like to go for theatrical play</h4>
+                <select data-placeholder="" class="chosen-select" id="q10">
             <span>Select an Option</span>
                 <option value=""></option>
                 <option value="1">1(Strongly Disagree)</option>
@@ -144,19 +142,16 @@
                 <option value="5">5(Strongly Agree)</option>
             </select>
 
-            <h3><strong>Question10</strong></h3>
-            <h4>Do you like to go for theatrical play</h4>
-           <select data-placeholder="" class="chosen-select" id="q1">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
+                <button type="submit" class="btn btn-info btn-lg btn-block submit" id="submit-button"><span class="glyphicon glyphicon-ok-circle"></span> Submit </button>
+                <hr>
+            </div>
         </div>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <p><a href="/api/friends" id="clear">API Friends List</a> | <a href="https://github.com/sahanabalram">GitHub Repo</a></p>
+        </div>
+    </footer>
 </body>
 
 </html>
