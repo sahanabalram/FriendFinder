@@ -16,24 +16,37 @@
             for (var i = 0; i < questions.length; i++) {
                 selectedAnswer.push(parseInt($("#q" + i).val()));
             }
-            console.log(selectedAnswer);
-
-            $.post("/api/friends", {
+            $.ajax({
+                type: "POST",
+                url: "/api/friends",
+                data: {
                     "name": name,
                     "scores": selectedAnswer,
                     "photo": photo
-                })
-                .done(function (data) {
-                    alert("Data Loaded: " + data);
-                });
+                },
+                success: function (data, textStatus, jqXHR) {
+                    console.log(data, textStatus);
+                    $(".modal-body").html(data.name);
+                    var img ='<img src="'+ data.photo +' " height=300px width=300px>';
+                    $(".modal-body").append(img);
+                    $('#display-friend').modal('toggle');
+                }
+            });
         }
 
-        var questions = ["Do you like pets", "Do you like to go and watch horror movies", "Do you like reading books",
+        var questions = [
+            "Do you like pets",
+            "Do you like to go and watch horror movies",
+            "Do you like reading books",
             "Do you like nature",
-            "Do you like to go for hikes", "Do you like to travel around the world",
-            "Do you like to go on long drives", "Does your mind think about what is happening around the world",
-            "Do you rely more on your imagination or reality", "Do you like to go for theatrical play"
+            "Do you like to go for hikes",
+            "Do you like to travel around the world",
+            "Do you like to go on long drives",
+            "Does your mind think about what is happening around the world",
+            "Do you rely more on your imagination or reality",
+            "Do you like to go for theatrical play"
         ];
+
         var options = ["Select an Option", "1 (Strongly Disagree)", "2", "3", "4", "5 (Strongly Agree)"];
 
         function populateQuestion() {
@@ -64,27 +77,45 @@
                 <hr>
             </div>
         </div>
-        <div class="jumbotron">
+        <div class="container">
             <h2>
                 <strong>About You</strong>
             </h2>
             <h4>
                 <span class="glyphicon glyphicon-asterisk"></span> Name
-                <input type="text" name id="name" class="form-control" required>
+                <input type="text" id="name" class="form-control" required>
             </h4>
 
             <h4>
                 <span class="glyphicon glyphicon-asterisk"></span> Link to your photo image
-                <input type="text" name id="photo" class="form-control" required>
-            </h4 <hr>
+                <input type="text" id="photo" class="form-control" required>
+            </h4>
+            <hr>
             <div id="questions">
             </div>
-        </div>
-        <footer class="footer">
-            <div class="container">
-                <p><a href="/api/friends" id="clear">API Friends List</a> | <a href="https://github.com/sahanabalram">GitHub Repo</a></p>
+            <div class="modal modal-fade" id="display-friend">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Your Compatible Friend is :</h4>
+                        </div>
+                        <div class="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
+            <footer class="footer">
+                <div class="container">
+                    <p><a href="/api/friends" id="clear">API Friends List</a> | <a href="https://github.com/sahanabalram">GitHub Repo</a></p>
+                </div>
+            </footer>
+        </div>
+    </div>
 </body>
 
 </html>
