@@ -8,7 +8,52 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="stylesheet/style.css">
+    <script>
+        function onSubmit() {
+            var selectedAnswer = [];
+            var photo = $("#photo").val();
+            var name = $("#name").val();
+            for (var i = 0; i < questions.length; i++) {
+                selectedAnswer.push(parseInt($("#q" + i).val()));
+            }
+            console.log(selectedAnswer);
 
+            $.post("/api/friends", {
+                    "name": name,
+                    "scores": selectedAnswer,
+                    "photo": photo
+                })
+                .done(function (data) {
+                    alert("Data Loaded: " + data);
+                });
+        }
+
+        var questions = ["Do you like pets", "Do you like to go and watch horror movies", "Do you like reading books",
+            "Do you like nature",
+            "Do you like to go for hikes", "Do you like to travel around the world",
+            "Do you like to go on long drives", "Does your mind think about what is happening around the world",
+            "Do you rely more on your imagination or reality", "Do you like to go for theatrical play"
+        ];
+        var options = ["Select an Option", "1 (Strongly Disagree)", "2", "3", "4", "5 (Strongly Agree)"];
+
+        function populateQuestion() {
+            $("#questions").append("<h4><strong>Questions</strong></h4>");
+            for (var i = 0; i < questions.length; i++) {
+                $("#questions").append("<h4>" + (i + 1) + " " + questions[i] + "</h4>");
+                $("#questions").append("<select id=q" + i + "></select>");
+                for (var j = 0; j < options.length; j++) {
+                    $("#q" + i).append("<option value=" + j + ">" + options[j] + "</option>");
+                }
+            }
+            $("#questions").append(
+                '<button class="btn btn-info btn-lg btn-block" id="submit-button" onClick="onSubmit()"><span class="glyphicon glyphicon-ok-circle"</span> Submit </button>'
+            );
+            $("#questions").append("<hr>");
+        }
+        $(document).ready(function () {
+            populateQuestion();
+        });
+    </script>
 </head>
 
 <body>
@@ -30,128 +75,16 @@
 
             <h4>
                 <span class="glyphicon glyphicon-asterisk"></span> Link to your photo image
-                <input type="text" name id="name" class="form-control" required>
-            </h4>
-            <hr>
-            <div class="questions">
-                <h1><strong>Questions</strong></h1>
-                <h4>1.Do you like pets</h4>
-                <select data-placeholder="" class="chosen-select" id="q1">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-
-                <h4>2. Do you like to go and watch horror movies</h4>
-                <select data-placeholder="" class="chosen-select" id="q2">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-
-
-                <h4>3. Do you like reading books</h4>
-                <select data-placeholder="" class="chosen-select" id="q3">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-
-                <h4> 4. Do you like nature</h4>
-                <select data-placeholder="" class="chosen-select" id="q4">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-
-                <h4>5. Do you like to go for hikes</h4>
-                <select data-placeholder="" class="chosen-select" id="q5">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-
-                <h4>6. Do you like to travel around the world</h4>
-                <select data-placeholder="" class="chosen-select" id="q6">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-                <h4>7. Do you like to go on long drives</h4>
-                <select data-placeholder="" class="chosen-select" id="q7">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-                <h4>8. Does your mind think about what is happening around the world</h4>
-                <select data-placeholder="" class="chosen-select" id="q8">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-                <h4>9. Do you rely more on your imagination or reality</h4>
-                <select data-placeholder="" class="chosen-select" id="q9">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-                <h4>10. Do you like to go for theatrical play</h4>
-                <select data-placeholder="" class="chosen-select" id="q10">
-            <span>Select an Option</span>
-                <option value=""></option>
-                <option value="1">1(Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5(Strongly Agree)</option>
-            </select>
-
-                <button type="submit" class="btn btn-info btn-lg btn-block submit" id="submit-button"><span class="glyphicon glyphicon-ok-circle"></span> Submit </button>
-                <hr>
+                <input type="text" name id="photo" class="form-control" required>
+            </h4 <hr>
+            <div id="questions">
             </div>
         </div>
-    </div>
-    <footer class="footer">
-        <div class="container">
-            <p><a href="/api/friends" id="clear">API Friends List</a> | <a href="https://github.com/sahanabalram">GitHub Repo</a></p>
-        </div>
-    </footer>
+        <footer class="footer">
+            <div class="container">
+                <p><a href="/api/friends" id="clear">API Friends List</a> | <a href="https://github.com/sahanabalram">GitHub Repo</a></p>
+            </div>
+        </footer>
 </body>
 
 </html>
