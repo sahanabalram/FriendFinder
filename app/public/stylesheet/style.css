@@ -1,6 +1,7 @@
 body {
     background-image: url("../images/seamless_paper.png");
    font-family: monospace;
+   font-size: 24px;
 }
 div.container-fluid,div.container{
     width: 960px;
@@ -30,4 +31,18 @@ button#submit-button {
 .footer {
     float: left;
     clear: both;
+}
+
+h4.modal-title {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+div.modal-body {
+    max-width: 600px;
+    background-color: antiquewhite;
+    
+}
+img {
+    border: 1px solid black;
 }
