@@ -2,7 +2,7 @@ body {
     background-image: url("../images/seamless_paper.png");
    font-family: monospace;
 }
-div.container-fluid {
+div.container-fluid,div.container{
     width: 960px;
 }
 .jumbotron {
