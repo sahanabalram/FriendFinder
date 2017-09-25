@@ -1,15 +1,21 @@
 body {
-    background-image: url("../images/paisley.png");
-   font-family: verdana;
+    background-image: url("../images/seamless_paper.png");
+   font-family: monospace;
 }
-
+div.container-fluid {
+    width: 960px;
+}
 .jumbotron {
-    background-color: aquamarine;
+    background-color: cornsilk;
     max-width: 100%;
+    margin-top: 60px;
 }
 
 h1.text-center {
-    color: mediumturquoise;
+    color: black;
+    font-family: 'Crimson Text', serif;
+    font-weight: bolder;
+    font-size: 52px;
 }
 
 button.btn.btn-info.btn-lg,

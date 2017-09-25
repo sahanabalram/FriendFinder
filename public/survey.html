@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet/style.css">
     <script>
         function onSubmit() {
@@ -26,8 +27,8 @@
                 },
                 success: function (data, textStatus, jqXHR) {
                     console.log(data, textStatus);
-                    $(".modal-body").html(data.name);
-                    var img ='<img src="'+ data.photo +' " height=300px width=300px>';
+                    $(".modal-body").append(data.name);
+                    var img = '<img src="' + data.photo + ' " height=300px width=300px>';
                     $(".modal-body").append(img);
                     $('#display-friend').modal('toggle');
                 }
@@ -62,6 +63,21 @@
                 '<button class="btn btn-info btn-lg btn-block" id="submit-button" onClick="onSubmit()"><span class="glyphicon glyphicon-ok-circle"</span> Submit </button>'
             );
             $("#questions").append("<hr>");
+        }
+
+
+        function validateForm() {
+            if($("#name".val()) === "" || $("#photo").val() === "") {
+                return false;
+                alert("Name is required");
+            }
+            return true;
+
+            $("#submit-button").on(click,function(){
+                if(validateForm()) {
+
+                }
+            });
         }
         $(document).ready(function () {
             populateQuestion();
