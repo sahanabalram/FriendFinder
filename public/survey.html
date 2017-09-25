@@ -17,22 +17,27 @@
             for (var i = 0; i < questions.length; i++) {
                 selectedAnswer.push(parseInt($("#q" + i).val()));
             }
-            $.ajax({
-                type: "POST",
-                url: "/api/friends",
-                data: {
-                    "name": name,
-                    "scores": selectedAnswer,
-                    "photo": photo
-                },
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data, textStatus);
-                    $(".modal-body").append(data.name);
-                    var img = '<img src="' + data.photo + ' " height=300px width=300px>';
-                    $(".modal-body").append(img);
-                    $('#display-friend').modal('toggle');
-                }
-            });
+            if (!validate(selectedAnswer)) {
+                alert("Please complete the entire form with all options selected");
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/api/friends",
+                    data: {
+                        "name": name,
+                        "scores": selectedAnswer,
+                        "photo": photo
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        console.log(data, textStatus);
+                        $(".modal-body").html("");
+                        $(".modal-body").append(data.name);
+                        var img = '<img src="' + data.photo + ' " height=300px width=300px>';
+                        $(".modal-body").append(img);
+                        $('#display-friend').modal('toggle');
+                    }
+                });
+            }
         }
 
         var questions = [
@@ -54,7 +59,7 @@
             $("#questions").append("<h4><strong>Questions</strong></h4>");
             for (var i = 0; i < questions.length; i++) {
                 $("#questions").append("<h4>" + (i + 1) + " " + questions[i] + "</h4>");
-                $("#questions").append("<select id=q" + i + "></select>");
+                $("#questions").append("<select  class='dropDown' id=q" + i + "></select>");
                 for (var j = 0; j < options.length; j++) {
                     $("#q" + i).append("<option value=" + j + ">" + options[j] + "</option>");
                 }
@@ -66,19 +71,22 @@
         }
 
 
-        function validateForm() {
-            if($("#name".val()) === "" || $("#photo").val() === "") {
+        function validate(numbers) {
+            if(!numbers) {
                 return false;
-                alert("Name is required");
+            }
+            if (!$("#name").val() || !$("#photo").val()) {
+                return false;
+            }
+            if (numbers.filter(function (num) {
+                    return num === 0;
+                }).length) {
+                return false;
+
             }
             return true;
-
-            $("#submit-button").on(click,function(){
-                if(validateForm()) {
-
-                }
-            });
         }
+
         $(document).ready(function () {
             populateQuestion();
         });

@@ -51,33 +51,32 @@
         "name": "Peggy",
         "photo": "http://image3.mouthshut.com/images/imagesp/925004670s.jpg",
         "scores": [
-            "5",
-            "5",
-            "5",
-            "5",
-            "5",
-            "5",
-            "5",
-            "5",
-            "5",
-            "5"
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5
         ]
     },
     {
         "name": "Sachin",
         "photo": "http://image3.mouthshut.com/images/imagesp/925004670s.jpg",
         "scores": [
-            "1",
-            "2",
-            "3",
-            "5",
-            "5",
-            "3",
-            "5",
-            "1",
-            "3",
-            "5"
+            1,
+            2,
+            3,
+            5,
+            5,
+            3,
+            5,
+            1,
+            3,
+            5
         ]
-    }
-    
+    }    
 ]
