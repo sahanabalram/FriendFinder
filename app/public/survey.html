@@ -72,7 +72,7 @@
 
 
         function validate(numbers) {
-            if(!numbers) {
+            if (!numbers) {
                 return false;
             }
             if (!$("#name").val() || !$("#photo").val()) {
@@ -115,7 +115,9 @@
                 <input type="text" id="photo" class="form-control" required>
             </h4>
             <hr>
-            <div id="questions">
+            <div class="container">
+                <div id="questions">
+                </div>
             </div>
             <div class="modal modal-fade" id="display-friend">
                 <div class="modal-dialog">
