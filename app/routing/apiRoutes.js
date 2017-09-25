@@ -8,7 +8,7 @@ var path = require("path");
 // ===============================================================================
 // ROUTING
 // ===============================================================================
-var fname = path.join(__dirname, "../app/data/friends.js");
+var fname = path.join(__dirname, "../data/friends.js");
 
 module.exports = function (app) {
     // API GET Requests
