@@ -42,10 +42,8 @@ module.exports = function (app) {
         };
         // data is received in a raw format and then in the next line the raw data is converted into an  JSON object
         friend.scores = friend.scores.map(Number);
-        console.log(friend.scores);
         var rawdata = fs.readFileSync(fname);
         var friendsData = JSON.parse(rawdata);
-        console.log(rawdata);
         // index of highest value in compare array and get the index of the friend in the friend array
         var compare = [];
         // Note the code here. Our "server" will respond to requests and let users know if they have a friend compatible
@@ -58,7 +56,7 @@ module.exports = function (app) {
                 totalDifference += Math.abs(userInputDifference);
                 // index of surveryResult j is the index and surveryResult[j] is the value at that index
                 if (j === friend.scores.length - 1) {
-                    
+
                 }
             }
             compare.push(totalDifference);
@@ -72,7 +70,6 @@ module.exports = function (app) {
             }
         }
         friendsData.push(friend);
-        console.log(friendsData);
         fs.writeFileSync(fname, JSON.stringify(friendsData));
         res.json(friendsData[compare.indexOf(minimum)]);
     });

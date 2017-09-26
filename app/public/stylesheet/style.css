@@ -1,6 +1,6 @@
 body {
     background-image: url("../images/seamless_paper.png");
-   font-family: monospace;
+   font-family: Arial, Helvetica, sans-serif;
    font-size: 24px;
 }
 div.container-fluid,div.container{
@@ -40,9 +40,35 @@ h4.modal-title {
 
 div.modal-body {
     max-width: 600px;
-    background-color: crimson;
+    background-color: blanchedalmond;
     
 }
 img {
     border: 1px solid black;
+    display:block;
+    clear:both;
+    margin:0 auto;
+}
+
+strong {
+    font-size: 36px;
+}
+
+h4 {
+    font-size: 26px;
+}
+
+#submit-button {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+select#q0,select#q1,select#q2,select#q3,select#q4,select#q5,select#q6,select#q7,select#q8,select#q9,select#q10 {
+    font-size: 18px;
+}
+a#clear {
+    font-size: 14px;
+}
+a {
+    font-size: 14px;
 }
